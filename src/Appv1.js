@@ -8,7 +8,7 @@ function createRandomPost() {
   };
 }
 const PostContext = createContext();
-function App() {
+function Appv1() {
   const [posts, setPosts] = useState(() =>
     Array.from({ length: 30 }, () => createRandomPost())
   );
@@ -76,7 +76,7 @@ function App() {
 }
 
 function Header() {
-  const { onClearPosts} = useContext(PostContext);
+  const { onClearPosts } = useContext(PostContext);
   return (
     <header>
       <h1>
@@ -84,7 +84,8 @@ function Header() {
       </h1>
       <div>
         <Results />
-        <SearchPosts/>
+        <SearchPosts
+        />
         <button onClick={onClearPosts}>Clear posts</button>
       </div>
     </header>
@@ -131,11 +132,7 @@ function FormAddPost() {
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    if (!body || !title) {
-
-      alert("title and post cannot be empty")
-      return;
-    }
+    if (!body || !title) return;
     onAddPost({ title, body });
     setTitle("");
     setBody("");
@@ -212,4 +209,4 @@ function Footer() {
     </footer>;
 }
 
-export default App;
+export default Appv1;
