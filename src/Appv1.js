@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 
+
 function createRandomPost() {
   return {
     title: `${faker.hacker.adjective()} ${faker.hacker.noun()}`,
@@ -158,6 +159,7 @@ function FormAddPost() {
 function List() {
   const { posts } = useContext(PostContext);
   return (
+    <>
     <ul>
       {posts.map((post, i) => (
         <li key={i}>
@@ -166,6 +168,8 @@ function List() {
         </li>
       ))}
     </ul>
+  
+      </>
   );
 }
 
